@@ -11,3 +11,11 @@ app/projects/microphone/Output/bin/map.txt
 # 系统杂项
 Thumbs.db
 Desktop.ini
+
+# OTA 测试临时产物与库备份（可重新生成/获取）
+app/libs/bt8930/*.bak_*
+app/libs/bt8930/*.new_from_vendor
+app/projects/microphone/Output/bin/*.fot
+app/projects/microphone/Output/bin/app_ota_test_v2.dcf
+docs/peripheral/OTA/~$*.docx
+.zcode/

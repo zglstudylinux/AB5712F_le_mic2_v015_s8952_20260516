@@ -14,8 +14,8 @@ void usb_dev_update_process(void);
 void usb_dev_update_reset(void);
 void usb_dev_update_init(u8 *param, uint8_t len);
 
-//外部api
-void usb_device_hid_send_user(u8 report_id, u8 *data, int len);
+//外部api（原厂 libdrivers.a 中定义，type: NORMAL_DATA=0 裸数据64B / FOTA_DATA=1 带Report ID前缀63B，枚举见 usb_device_iap2.h）
+void usb_device_hid_send_user(u8 report_id, u8 *data, int len, int type);
 
 void fot_init(void);
 void fot_tws_update_data_write(u8 *data, u32 addr, u32 len);

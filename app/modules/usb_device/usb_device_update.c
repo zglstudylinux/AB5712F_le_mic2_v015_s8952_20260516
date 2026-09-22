@@ -1,4 +1,6 @@
 #include "include.h"
+#include "usb_device_update.h"
+//NORMAL_DATA / FOTA_DATA 枚举（modules.h 已全局引入 mfi_iap2/usb_device_iap2.h，此处显式引用以防万一）
 
 #define TRACE_EN                1
 
@@ -169,7 +171,7 @@ void usb_dev_update_rx_pkt(uint8_t *ptr, uint8_t len)
 void usb_dev_update_pkt_req(void)
 {
     uint8_t data[10];
-    uint8_t reporter_id = 0x55;
+    uint8_t reporter_id = 0x03;     //vendor 自定义HID report id (usage page 0xff90)
     uint32_t pkt_size = 0;
     uint32_t file_addr = usb_dev_cb.addr;
 
@@ -184,7 +186,7 @@ void usb_dev_update_pkt_req(void)
     memcpy(data+2, &file_addr, 4);
     memcpy(data+6, &pkt_size, 4);
 
-    usb_device_hid_send_user(reporter_id, data, sizeof(data));
+    usb_device_hid_send_user(reporter_id, data, sizeof(data), FOTA_DATA);
 
 //    TRACE("pkt_req\n");
 //    TRACE_R(data, 10);
@@ -218,13 +220,13 @@ void usb_dev_update_pkt_save(u8 *ptr, uint8_t len)
 void usb_dev_update_sta_rsp(uint8_t update_role, uint8_t sta)
 {
     uint8_t data[4];
-    uint8_t reporter_id = 0x55;
+    uint8_t reporter_id = 0x03;     //vendor 自定义HID report id (usage page 0xff90)
 
     data[0] = CMD_UPDATE_STA;
     data[1] = 2;
     data[2] = update_role;
     data[3] = sta;
-    usb_device_hid_send_user(reporter_id, data, sizeof(data));
+    usb_device_hid_send_user(reporter_id, data, sizeof(data), FOTA_DATA);
 
 //    TRACE("pkt_req\n");
 //    TRACE_R(data, 10);
@@ -234,11 +236,11 @@ void usb_dev_update_sta_rsp(uint8_t update_role, uint8_t sta)
 void usb_dev_update_reset_rsp(void)
 {
     uint8_t data[2];
-    uint8_t reporter_id = 0x55;
+    uint8_t reporter_id = 0x03;     //vendor 自定义HID report id (usage page 0xff90)
 
     data[0] = CMD_DEV_RESET;
     data[1] = 0;
-    usb_device_hid_send_user(reporter_id, data, sizeof(data));
+    usb_device_hid_send_user(reporter_id, data, sizeof(data), FOTA_DATA);
 //    TRACE("pkt_req\n");
 //    TRACE_R(data, 10);
 }
