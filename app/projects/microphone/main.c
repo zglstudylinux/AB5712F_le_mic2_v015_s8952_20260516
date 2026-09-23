@@ -21,7 +21,7 @@ int main(void)
     sys_cb.rst_reason = sys_rst_init(POWKEY_10S_RESET);
     printf("\nHello BT893X: %x\n", sys_cb.rst_reason);
     printf("SDK : v%04X, LIBS: v%04X\n", SDK_VERSION, LIBS_VERSION);
-    // printf("APP_VER: OTA-TEST-V2 (%s %s)\n", __DATE__, __TIME__);    //OTA交叉升级验证标识，验证完可删
+    //printf("APP_VER: OTA-Emit-Test-V1 (%s %s)\n", __DATE__, __TIME__);    //OTA交叉升级验证标识，验证完可删
 //    if (sys_cb.rst_reason & BIT(31)) {
 //        printf("first power up\n");
 //    }

@@ -35,6 +35,7 @@
 #include "usb_device/usb_enum.h"
 #include "usb_device/usb_device_user.h"
 #include "usb_device/usb_comm.h"
+#include "usb_device/usb_device_update.h"
 #include "mfi_iap2/usb_device_iap2.h"
 
 #include "voice/echo.h"

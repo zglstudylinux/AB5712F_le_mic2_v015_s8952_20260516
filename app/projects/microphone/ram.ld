@@ -17,6 +17,8 @@ __comm_vma          = 0x10c00;
 __comm_ram_size     = 120k;
 #elif (WIRELESS_MIC_YLCRN_L3_EN && DEVICE_INTERPHONE_EN)
 __comm_ram_size     = 92k;
+#elif ADAPTER_AB_FOT_DEVICE_SUPPORT
+__comm_ram_size     = 113k; //开启FOTA同步升级device后comm区不足，从adapter区(空余较多)借4k
 #else
 __comm_ram_size     = 109k;
 #endif

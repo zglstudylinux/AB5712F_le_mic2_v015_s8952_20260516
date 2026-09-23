@@ -30,4 +30,8 @@ void bt_tws_sync_fot_data(void);
 
 void ble_audio_ctr_cb(uint8_t enable);
 u8 wireless_get_status(void);
+
+//原厂 libplatform.a(fot_update.o) 提供，头文件未声明，此处补齐
+void fot_set_base_offset(void);
+u32 fot_get_down_length(void);
 #endif
