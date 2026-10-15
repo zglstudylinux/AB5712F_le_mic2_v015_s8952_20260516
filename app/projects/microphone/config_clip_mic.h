@@ -25,7 +25,7 @@
 #define SOFT_POWER_ON_OFF               1                       //是否使用软开关机功能
 #define PWRKEY_2_HW_PWRON               0                       //用PWRKEY模拟硬开关
 #define GUI_SELECT                      GUI_NO                  //GUI Display Select
-#define UART0_PRINTF_SEL                PRINTF_PA7             //选择UART打印信息输出IO，或关闭打印信息输出
+#define UART0_PRINTF_SEL                PRINTF_PB3             //选择UART打印信息输出IO，或关闭打印信息输出
 #define SYS_PARAM_RTCRAM                0                       //是否系统参数保存到RTCRAM
 #define PWRON_ENTER_BTMODE_EN           0                       //是否上电默认进蓝牙模式
 #define SLEEP_DAC_OFF_EN                (is_sleep_dac_off_enable()) //sfunc_sleep是否关闭DAC， 复用MICL检测方案不能关DAC。
@@ -134,14 +134,14 @@
 #define APAPTER_LOCAL_AUX_EN                    0               //接收端本地输入是否改为AUX输入，默认MIC输入
 #define ADAPTER_MFI_EN                          0               //是否支持MFI认证功能(根据实际硬件,修改I2C通信引脚)
 #define ADAPTER_USB_MIC_RX_EN                   1               //接收端是否打开usb mic#if FUNC_TEST_PRINT//调试打印
-#define ADAPTER_USB_UPDATE_EN                   1               //适配器是否支持usb升级功能(若编译后代码超过492k，需要把FLASH_SIZE改成2M才能支持FOTA)
+#define ADAPTER_USB_UPDATE_EN                   0               //适配器是否支持usb升级功能(若编译后代码超过492k，需要把FLASH_SIZE改成2M才能支持FOTA)
 #define ADAPTER_USB_MIC_STEREO_EN               0               //接收端usb mic是否支持真立体声(USB默认已经是假的立体声,若使用I2S之类的输入可以使用USB真立体声)
 #define ADAPTER_I2S_OUTPUT_EN                   0               //接收端是否打开I2S输出
 #define ADAPTER_I2S_IN_OUT_EN                   0               //接收端是否支持I2S双向传输(主机模式)
 #define ADAPTER_ROOM_REVERB_EN                  0               //房间混响使能
 #define ADAPTER_NORMAL_LE_EN                    0               //适配器是否支持多开一条普通BLE连接，可用于支持FOTA或简单透传
-#define ADAPTER_AB_FOT_EN                       1               //适配器是否支持FOTA升级，若编译后代码超过492k，需要把FLASH_SIZE改成2M才能支持FOTA
-#define ADAPTER_AB_FOT_DEVICE_SUPPORT           1 				//适配器FOTA支持同步升级发射端
+#define ADAPTER_AB_FOT_EN                       0               //适配器是否支持FOTA升级，若编译后代码超过492k，需要把FLASH_SIZE改成2M才能支持FOTA
+#define ADAPTER_AB_FOT_DEVICE_SUPPORT           0 				//适配器FOTA支持同步升级发射端
 #define AB_FOT_TYPE             				AB_FOT_TYPE_NORMAL //适配器FOTA类型选择
 #define ADAPTER_SOFT_GAIN_AFTER_MIX_EN          0               //适配器mix后软件增益
 #define ADAPTER_VOICE_CHANGE_V2_EN              0               //变音(暂不支持)
